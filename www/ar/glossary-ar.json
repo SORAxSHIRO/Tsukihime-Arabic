@@ -1,0 +1,224 @@
+{
+  "version": 1,
+  "terms": [
+    {
+      "source": "Magecraft",
+      "term": "السحر",
+      "inGuide": true,
+      "description": "يقابل مصطلح Magecraft في عالم تايب مون. ترجمته الحرفية «حِرْفة سحرية»، وقد اعتُمد في هذا التعريب لفظ «السحر».",
+      "sourceNote": "ما يعرف ب magecraft داخل عالم typemoon وترجمته الحرفية هي حِرفة سحرية ولكن سيتم اعتماد ترجمتها ب *سحر* فحسب.",
+      "row": 6,
+      "approvedBy": "user",
+      "originalApprovedForm": "السحر",
+      "originalResearchNote": "اقتراح تحريري. لم يثبت إجماع عربي في البحث الأول. يُراجع تمييزه عن Magic / True Magic."
+    },
+    {
+      "source": "True Ancestor",
+      "term": "السلف الحقيقي",
+      "inGuide": true,
+      "description": "يقابل مصطلح True Ancestor في عالم تايب مون، ومن مقابلاته العربية «السلف الأصيل».",
+      "sourceNote": "يعرفون ب true ancestor داخل عالم typemoon او السلف الأصيل كترجمة حرفية",
+      "row": 7,
+      "approvedBy": "user",
+      "originalApprovedForm": "السلف الحقيقي",
+      "originalResearchNote": "اقتراح أولي لاسم الفئة. لم يثبت اتفاق الفاندوم العربي على مقابل واحد."
+    },
+    {
+      "source": "Magic / True Magic",
+      "term": "السحر الحقيقي",
+      "inGuide": true,
+      "description": "يقابل مصطلح True Magic في عالم تايب مون. يمثّل أقصى مراتب السحر، ويحقّق المعجزات، وبلوغه حلم يطمح إليه كل ساحر.",
+      "sourceNote": "من اسمه فهو ال true magic داخل عالم typemoon ويعتبر اقصى مراحل السحر ,ويحقق المعجزات ويعتبر حلم كل ساحر",
+      "row": 8,
+      "approvedBy": "user",
+      "originalApprovedForm": "السحر الحقيقي",
+      "originalResearchNote": "تمييز اصطلاحي أولي يحتاج استكمال بحث الاستعمال العربي."
+    },
+    {
+      "source": "Shiki Tohno",
+      "term": "شيكي تُونو",
+      "inGuide": true,
+      "description": "",
+      "sourceNote": "Shiki Tohno",
+      "row": 9,
+      "approvedBy": "user",
+      "originalApprovedForm": "شيكي توْنو",
+      "originalResearchNote": "توجد صيغ متعددة في المصادر العربية. يُحسم أيضًا ترتيب الاسم الشخصي واسم العائلة."
+    },
+    {
+      "source": "Arcueid Brunestud",
+      "term": "آركويد برونستاد",
+      "inGuide": true,
+      "description": "",
+      "sourceNote": "Arcueid Brunestud",
+      "row": 10,
+      "approvedBy": "user",
+      "originalApprovedForm": "آركويد برونستاد",
+      "originalResearchNote": "اختلاف في كتابة الاسم واللقب بين المصادر العربية."
+    },
+    {
+      "source": "Ciel",
+      "term": "سِيل",
+      "inGuide": true,
+      "description": "",
+      "sourceNote": "Ciel",
+      "row": 11,
+      "approvedBy": "user",
+      "originalApprovedForm": "سِيلْ",
+      "originalResearchNote": "ترد الصيغتان في المصادر العربية."
+    },
+    {
+      "source": "Akiha Tohno",
+      "term": "أكيها تُونو",
+      "inGuide": true,
+      "description": "",
+      "sourceNote": "Akiha Tohno",
+      "row": 12,
+      "approvedBy": "user",
+      "originalApprovedForm": "أكيها توْنو",
+      "originalResearchNote": "يُوحّد اسم العائلة وترتيب الاسم مع Shiki Tohno."
+    },
+    {
+      "source": "Dead Apostle",
+      "term": "الرُّسُل الموتى",
+      "inGuide": false,
+      "description": "",
+      "sourceNote": "",
+      "row": 15,
+      "approvedBy": "user",
+      "originalApprovedForm": "الرُسل الموتى",
+      "originalResearchNote": "لم يُبحث بالتفصيل بعد. لا يوجد اقتراح عربي معتمد."
+    },
+    {
+      "source": "Mystic Eyes of Death Perception",
+      "term": "الأعين السحرية المُدْرِكة للموت",
+      "inGuide": false,
+      "description": "",
+      "sourceNote": "",
+      "row": 16,
+      "approvedBy": "user",
+      "originalApprovedForm": "الأعين السحرية المدركة للموت",
+      "originalResearchNote": "لم يُبحث بالتفصيل بعد. لا يوجد اقتراح عربي معتمد."
+    },
+    {
+      "source": "Holy Church",
+      "term": "الكنيسة المقدسة",
+      "inGuide": false,
+      "description": "",
+      "sourceNote": "",
+      "row": 17,
+      "approvedBy": "user",
+      "originalApprovedForm": "الكنيسة المقدسة",
+      "originalResearchNote": "لم يُبحث بالتفصيل بعد. لا يوجد اقتراح عربي معتمد."
+    },
+    {
+      "source": "Executor",
+      "term": "مُطَهَّر",
+      "inGuide": false,
+      "description": "",
+      "sourceNote": "",
+      "row": 18,
+      "approvedBy": "user",
+      "originalApprovedForm": "مُطَهًر",
+      "originalResearchNote": "لم يُبحث بالتفصيل بعد. لا يوجد اقتراح عربي معتمد."
+    },
+    {
+      "source": "Burial Agency",
+      "term": "معهودو الدفن",
+      "inGuide": false,
+      "description": "",
+      "sourceNote": "",
+      "row": 19,
+      "approvedBy": "user",
+      "originalApprovedForm": "معهودي الدفن",
+      "originalResearchNote": "لم يُبحث بالتفصيل بعد. لا يوجد اقتراح عربي معتمد."
+    },
+    {
+      "source": "Black Key",
+      "term": "المفتاح الأسود",
+      "inGuide": false,
+      "description": "",
+      "sourceNote": "",
+      "row": 20,
+      "approvedBy": "user",
+      "originalApprovedForm": "المفتاح الأسود",
+      "originalResearchNote": "لم يُبحث بالتفصيل بعد. لا يوجد اقتراح عربي معتمد."
+    },
+    {
+      "source": "Seventh Holy Scripture",
+      "term": "السِّفْر المقدس السابع",
+      "inGuide": false,
+      "description": "",
+      "sourceNote": "",
+      "row": 21,
+      "approvedBy": "user",
+      "originalApprovedForm": "السفر المقدس السابع",
+      "originalResearchNote": "لم يُبحث بالتفصيل بعد. لا يوجد اقتراح عربي معتمد."
+    },
+    {
+      "source": "Marble Phantasm",
+      "term": "تجسيد الخيال",
+      "inGuide": true,
+      "description": "",
+      "sourceNote": "Marble Phantasm",
+      "row": 22,
+      "approvedBy": "user",
+      "originalApprovedForm": "تجسيد الخيال",
+      "originalResearchNote": "لم يُبحث بالتفصيل بعد. لا يوجد اقتراح عربي معتمد."
+    },
+    {
+      "source": "Magus",
+      "term": "ساحر",
+      "inGuide": false,
+      "description": "",
+      "sourceNote": "",
+      "row": 23,
+      "approvedBy": "user",
+      "originalApprovedForm": "ساحر",
+      "originalResearchNote": "لم يُبحث بالتفصيل بعد. لا يوجد اقتراح عربي معتمد."
+    },
+    {
+      "source": "Magical Energy",
+      "term": "الطاقة السحرية",
+      "inGuide": false,
+      "description": "",
+      "sourceNote": "",
+      "row": 24,
+      "approvedBy": "user",
+      "originalApprovedForm": "الطاقة السحرية",
+      "originalResearchNote": "لم يُبحث بالتفصيل بعد. لا يوجد اقتراح عربي معتمد."
+    },
+    {
+      "source": "Magic Circuit",
+      "term": "الدوائر السحرية",
+      "inGuide": false,
+      "description": "",
+      "sourceNote": "",
+      "row": 25,
+      "approvedBy": "user",
+      "originalApprovedForm": "الدوائر السحرية",
+      "originalResearchNote": "لم يُبحث بالتفصيل بعد. لا يوجد اقتراح عربي معتمد."
+    },
+    {
+      "source": "Bounded Field",
+      "term": "حاجز سحري",
+      "inGuide": false,
+      "description": "",
+      "sourceNote": "",
+      "row": 26,
+      "approvedBy": "user",
+      "originalApprovedForm": "حاجز سحري",
+      "originalResearchNote": "لم يُبحث بالتفصيل بعد. لا يوجد اقتراح عربي معتمد."
+    }
+  ],
+  "pending": [
+    {
+      "source": "Hisui",
+      "row": 13
+    },
+    {
+      "source": "Kohaku",
+      "row": 14
+    }
+  ]
+}
