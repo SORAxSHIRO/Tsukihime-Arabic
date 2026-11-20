@@ -1,0 +1,246 @@
+/* Reflect native menu geometry; keep the story art, film and glyphs readable. */
+html.ar-ui #stage { direction: ltr; }
+html.ar-ui :is(#ui, #sysui, #stage > .modepanel, #rotate) { scale: -1 1; }
+html.ar-ui .ar-ink { display: inline-block; scale: -1 1; direction: rtl; unicode-bidi: isolate; max-width: 100%; letter-spacing: 0; }
+html.ar-ui :is(.ar-keep, #ui .logpage, .confsample, .np-label, .slotdigits, .slot img, .fc-preview-image, .gl-thumb, .gl-crop img, .t-logo, .title-still, .dialog-pic img) { scale: -1 1; }
+html.ar-ui :is(.confsample, #ui .logpage) { direction: rtl; text-align: start; }
+html.ar-ui :is(.gl-track, .gl-now-title, .gl-now-by, .gl-ending-caption, .slot-chapter, .chapter-name, .keyrow, .keynote, .fc-chapter) { letter-spacing: 0; font-family: var(--interface-font); }
+html.ar-ui :is(.dialog-q, .fc-preview-note, .fc-preview-title, .gl-now-by, .slotscene, .savenote) .ar-ink { width: 100%; text-align: right; }
+html.ar-ui .dialog-q .ar-ink { white-space: pre-line; }
+/* Keep right-aligned system questions inside the frame's transparent border. */
+html.ar-ui .dialog:not(.story) .dialog-q .ar-ink { box-sizing: border-box; padding-inline: 32px; }
+html.ar-ui #touch-back { left: 0; scale: -1 1; }
+html.ar-ui #popup { scale: -1 1; }
+html.ar-ui [style*="titlemenu__c_type-moon"], html.ar-ui [style*="logo_fix_"] { scale: -1 1; }
+html.ar-ui .gl-viewer-band { scale: -1 1; }
+html.ar-ui .gl-viewer-band .ar-ink { scale: 1 1; }
+
+html.ar-ui #popup { left: auto; right: 0; transform-origin: right top; }
+html.ar-ui :is(.ar-keep, .slotdigits, .gl-viewer-band) .ar-ink { scale: 1 1; }
+html.ar-ui :is(.chaptertitle, .fc-chapter, .slot-chapter) .ar-ink { direction: rtl; }
+
+html.ar-ui [style*="title_titlelog"] { scale: -1 1; }
+html.ar-ui .t-logo [style*="title_titlelog"] { scale: 1 1; }
+html.ar-ui .rt-logo { scale: -1 1; }
+html.ar-ui .lumi { mix-blend-mode: screen; }
+html.ar-ui :is(#toast, #touch-hint) .ar-ink { scale: 1 1; }
+
+html.ar-ui :is(.wl-text, .hm-text) .ar-ink { text-align: right; font-family: var(--interface-font); }
+html.ar-ui :is(.hm-logo, .hm-tall-bg, .hm-land[style*="title_bg"], .gl-movie-thumb) { scale: -1 1; }
+html.ar-ui .gl-now-time .ar-ink { direction: ltr; }
+
+html.ar-ui :is(#toast, #touch-hint, .caption-text) { font-family: var(--interface-font); }
+
+.glossary-link, .conf-lang-toggle, .conf-credit-badge {
+  position: absolute;
+  top: 1760px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(18, 42, 75, 0.65);
+  border: 1px solid rgba(100, 180, 255, 0.4);
+  border-radius: 4px;
+  color: #d8e8f8;
+  font-family: var(--interface-font, "Tsuki Plex", sans-serif);
+  font-size: 21px;
+  letter-spacing: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  user-select: none;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.glossary-link {
+  left: 460px;
+  width: 380px;
+}
+.conf-lang-toggle {
+  left: 880px;
+  width: 400px;
+}
+.conf-credit-badge {
+  left: 1320px;
+  width: 380px;
+}
+.glossary-link:hover, .glossary-link:focus-visible,
+.conf-lang-toggle:hover, .conf-lang-toggle:focus-visible,
+.conf-credit-badge:hover, .conf-credit-badge:focus-visible {
+  border-color: #bbffff;
+  background: rgba(70, 150, 240, 0.85);
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(120, 220, 255, 0.9);
+}
+.glossary-link:active, .conf-lang-toggle:active, .conf-credit-badge:active {
+  background: rgba(120, 235, 255, 0.95);
+  color: #0b3a66;
+}
+.glossary-backdrop { left: 180px; top: 0; width: 1560px; height: 1080px; background-image: url('/assets/ui/CONF_PARTS_JA/config_innerbg.webp'); }
+.glossary-scroll { position: absolute; left: 300px; top: 96px; width: 1440px; height: 915px; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; }
+.glossary-scroll::-webkit-scrollbar { display: none; }
+.glossary-content { box-sizing: border-box; padding: 28px 58px 64px; font: 400 29px/1.65 var(--interface-font); color: #e8f1fb; direction: rtl; text-align: right; }
+html.ar-ui .glossary-content { scale: -1 1; }
+.glossary-heading { margin: 0 0 34px; padding: 0 0 18px; font: 400 40px/1.5 var(--interface-font); color: #fff; background: url('/assets/ui/MENU_PARTS_JA/underline.webp') 0 100% / 100% 12px no-repeat; }
+.glossary-entries { margin: 0; }
+.glossary-term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 26px; margin-top: 32px; font-size: 30px; color: #bfeeff; }
+.glossary-term:first-child { margin-top: 0; }
+.glossary-original { font-size: 23px; color: #d7e7f7; unicode-bidi: isolate; }
+.glossary-description { margin: 10px 0 0; max-width: 68ch; }
+html.touch .glossary-scroll { left: 200px; width: 1520px; height: 880px; }
+html.touch .glossary-content { padding: 24px 48px 100px; font-size: 32px; }
+html.touch .glossary-original { font-size: 26px; }
+
+/* ========================================================
+   TRANSLATOR CREDITS: SORA (@ali_soraa)
+   ======================================================== */
+
+/* 1. Title Screen Translator Credit */
+.ar-title-credit {
+  position: absolute;
+  left: 660px;
+  top: 1045px;
+  width: 600px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--interface-font);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  color: rgba(205, 225, 245, 0.72);
+  text-decoration: none;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 99;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+.ar-title-credit:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(130, 210, 255, 0.9);
+  opacity: 1;
+}
+.ar-title-credit .ar-credit-dot {
+  opacity: 0.45;
+  font-size: 13px;
+}
+.ar-title-credit .ar-credit-x {
+  font-family: "Tsuki Plex", sans-serif;
+  letter-spacing: 0.5px;
+  direction: ltr;
+}
+html.touch .ar-title-credit {
+  left: 60px;
+  top: 1045px;
+  width: auto;
+  justify-content: flex-start;
+  pointer-events: auto;
+}
+
+/* 3. Config Screen Translator Badge */
+.conf-credit-badge {
+  position: absolute;
+  left: 870px;
+  top: 1782px;
+  width: 520px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(18, 42, 75, 0.65);
+  border: 1px solid rgba(100, 180, 255, 0.4);
+  border-radius: 4px;
+  color: #d8e8f8;
+  font-family: var(--interface-font);
+  font-size: 21px;
+  letter-spacing: 0;
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: auto;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.conf-credit-badge:hover, .conf-credit-badge:focus-visible {
+  border-color: #bbffff;
+  background: rgba(36, 92, 160, 0.85);
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(100, 200, 255, 0.45);
+}
+.conf-credit-badge .conf-credit-x-icon {
+  display: inline-flex;
+  align-items: center;
+  color: #8edcff;
+}
+.conf-credit-badge .conf-credit-title {
+  font-weight: 500;
+  color: #ffffff;
+}
+.conf-credit-badge .conf-credit-dot {
+  opacity: 0.4;
+  font-size: 16px;
+}
+.conf-credit-badge .conf-credit-user {
+  font-family: "Tsuki Plex", sans-serif;
+  direction: ltr;
+  color: #aae0ff;
+  font-size: 19px;
+  font-weight: 400;
+}
+
+/* Glossary Dedication Card */
+.glossary-credits-card {
+  margin: 0 0 34px 0;
+  padding: 18px 26px;
+  background: rgba(14, 34, 62, 0.65);
+  border: 1px solid rgba(90, 175, 255, 0.35);
+  border-radius: 6px;
+  font-size: 20px;
+  color: #d0e4f7;
+  direction: rtl;
+  box-sizing: border-box;
+}
+.glossary-credits-title {
+  font-size: 22px;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+.glossary-credits-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-size: 19px;
+  color: #b0d2f0;
+}
+.glossary-credits-pipe {
+  opacity: 0.4;
+}
+.glossary-credits-link {
+  color: #72d4ff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Tsuki Plex", sans-serif;
+  direction: ltr;
+  transition: all 0.2s ease;
+}
+.glossary-credits-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px #72d4ff;
+}
+
+
+/* Prevent English phrases / tabs from being reversed or scrambled if home.js is ever opened */
+html.ar-ui .hm-page { scale: -1 1; direction: ltr; text-align: left; }
+html.ar-ui .hm-page .ar-ink { scale: 1 1; direction: ltr; text-align: left; unicode-bidi: normal; }
+html.ar-ui .hm-page :is(.hm-logo, .hm-tall-bg, .hm-land[style*="title_bg"]) { scale: 1 1; }

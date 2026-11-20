@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#000000">
+<title>Tsukihime remake</title>
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="touch.css">
+<!-- Dual-Language Smart Router (Default: Arabic) -->
+<script src="js/lang-router.js"></script>
+<script>
+  if (window.__tsuki_lang === 'ar') {
+    document.write('<link rel="stylesheet" href="typography.css"><link rel="stylesheet" href="arabic-ui.css">');
+  }
+</script>
+<style>
+.glossary-link, .conf-lang-toggle {
+  position: absolute;
+  top: 1480px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(18, 42, 75, 0.65);
+  border: 1px solid rgba(100, 180, 255, 0.4);
+  border-radius: 4px;
+  color: #d8e8f8;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  letter-spacing: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  user-select: none;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.glossary-link {
+  left: 688px;
+  width: 380px;
+}
+.conf-lang-toggle {
+  left: 1108px;
+  width: 420px;
+}
+.glossary-link:hover, .glossary-link:focus-visible,
+.conf-lang-toggle:hover, .conf-lang-toggle:focus-visible {
+  border-color: #bbffff;
+  background: rgba(70, 150, 240, 0.85);
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(120, 220, 255, 0.9);
+}
+.glossary-link:active, .conf-lang-toggle:active {
+  background: rgba(120, 235, 255, 0.95);
+  color: #0b3a66;
+}
+</style>
+</head>
+<body>
+<!-- Colour multipliers the interface draws with (0xb03e0): the choice lens flare is (1, 0.75, 1). -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="tint-flare" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  0 .75 0 0 0  0 0 1 0 0  0 0 0 1 0"/></filter></svg>
+<div id="stage">
+  <canvas id="gl" width="1920" height="1080"></canvas>
+  <video id="movie" playsinline></video>
+  <div id="panel"></div>
+  <div id="text"></div>
+  <div id="choices"></div>
+  <div id="click-mark"></div>
+  <div id="note"></div>
+  <div id="popup"></div>
+  <div id="mode-skip"></div>
+  <div id="mode-back"></div>
+  <div id="mode-auto"></div>
+  <div id="ui"></div>
+  <div id="sysui"></div>
+  <div id="toast"></div>
+  <canvas id="touchfx" width="1920" height="1080"></canvas>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

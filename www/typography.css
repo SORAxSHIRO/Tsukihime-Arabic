@@ -1,0 +1,23 @@
+/* Offline fonts, with their original OFL licences in fonts/arabic/<family>/. */
+@font-face { font-family: 'Tsuki Naskh'; src: url('fonts/arabic/notonaskharabic/Regular.ttf') format('truetype'); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: 'Tsuki Amiri'; src: url('fonts/arabic/amiri/Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Tsuki Plex'; src: url('fonts/arabic/ibmplexsansarabic/Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Tsuki Sans'; src: url('fonts/arabic/notosansarabic/Regular.ttf') format('truetype'); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: 'Tsuki Tajawal'; src: url('fonts/arabic/tajawal/Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Tsuki Cairo'; src: url('fonts/arabic/cairo/Regular.ttf') format('truetype'); font-weight: 400 700; font-display: swap; }
+:root { --interface-font: 'Tsuki Plex', sans-serif; }
+[data-typography] :is(#ui, #sysui, .helpbar, .keyhead, .keyrow, .keyslot, .keycap, .scene-name, .np-title, .dialog-q, .chapter-name) { font-family: var(--interface-font); }
+[data-typography] :is(#ui button, #sysui button, #ui select, #ui input) { font-family: var(--interface-font); }
+[data-typography] :is(#text, .logpage, .choice) { text-align: start; unicode-bidi: plaintext; }
+[data-typography] #text { overflow-y: auto; scrollbar-width: thin; scrollbar-color: #b9dbed #13223c; }
+/* Keep enlarged Arabic marks inside the first row's scrolling viewport. */
+[data-typography] #text:not(.balloon) { box-sizing: border-box; padding-block-start: max(2px, calc(var(--story-size) + var(--story-size) - 82px)); }
+[data-typography] #text.balloon { font-family: var(--story-font); }
+/* The second balloon is positioned outside the first text rectangle. */
+[data-typography] #text.balloon.two-balloons { overflow: visible; }
+[data-typography] .choice { white-space: pre-wrap; }
+[data-typography] .choice-glow { width: 100%; direction: inherit; text-align: inherit; }
+[data-typography] :is(#text, .logpage) .seg.glued { margin-left: 0; margin-inline-start: 6px; }
+[data-typography] :is(.dialog-q, .scene-name) { text-align: start; unicode-bidi: plaintext; }
+/* Value text occupies the original settings number frame. */
+.conf-fontvalue { position:absolute; width:164px; text-align:center; font:400 28px/44px var(--interface-font); color:rgba(255,255,255,.96); pointer-events:none; white-space:nowrap; letter-spacing:0; }
