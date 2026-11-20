@@ -1,0 +1,121 @@
+// lang-router.js - Dual-Language Smart Router for Tsukihime Remake
+// Default is Arabic ('ar'). Supports seamless soft reload to English ('en') from Config.
+(function() {
+  const savedLang = localStorage.getItem('tsuki.language');
+  const currentLang = (savedLang === 'en') ? 'en' : 'ar';
+  window.__tsuki_lang = currentLang;
+
+  document.documentElement.lang = currentLang;
+  if (currentLang === 'ar') {
+    document.documentElement.dir = 'rtl';
+    document.documentElement.classList.add('ar-ui');
+    document.documentElement.classList.remove('en-ui');
+  } else {
+    document.documentElement.dir = 'ltr';
+    document.documentElement.classList.add('en-ui');
+    document.documentElement.classList.remove('ar-ui');
+  }
+
+  window.__switchLanguage = function(lang) {
+    localStorage.setItem('tsuki.language', lang);
+    location.reload();
+  };
+
+  const AR_IMGS = new Set(["IMG1699.avif", "IMG1700.avif", "IMG1701.avif", "IMG1702.avif", "IMG2378.avif", "IMG2379.avif", "IMG2380.avif", "IMG2381.avif", "IMG2382.avif", "IMG2383.avif", "IMG2384.avif", "IMG2385.avif", "IMG2386.avif", "IMG2387.avif", "IMG2388.avif", "IMG2389.avif", "IMG2390.avif", "IMG2391.avif", "IMG2392.avif", "IMG2393.avif", "IMG2394.avif", "IMG2395.avif", "IMG2396.avif", "IMG2397.avif", "IMG2398.avif", "IMG2399.avif", "IMG2400.avif", "IMG2401.avif", "IMG2402.avif", "IMG2403.avif", "IMG2404.avif", "IMG2406.avif", "IMG2407.avif", "IMG2408.avif", "IMG2409.avif", "IMG2410.avif", "IMG2411.avif", "IMG2412.avif", "IMG2413.avif", "IMG2414.avif", "IMG2416.avif", "IMG2417.avif", "IMG2418.avif", "IMG2419.avif", "IMG2420.avif", "IMG2421.avif", "IMG2422.avif", "IMG2423.avif", "IMG2424.avif", "IMG2425.avif", "IMG2426.avif", "IMG2427.avif", "IMG2428.avif", "IMG2429.avif", "IMG2430.avif", "IMG2431.avif", "IMG2432.avif", "IMG2433.avif", "IMG2434.avif", "IMG2435.avif", "IMG2436.avif", "IMG2437.avif", "IMG2458.avif", "IMG2524.avif", "IMG2575.avif", "IMG2580.avif", "IMG2587.avif", "IMG2596.avif", "IMG2598.avif", "IMG2610.avif", "IMG2622.avif", "IMG2623.avif", "IMG2624.avif", "IMG2625.avif", "IMG2626.avif", "IMG2627.avif", "IMG2628.avif", "IMG2629.avif", "IMG2630.avif", "IMG2631.avif", "IMG2632.avif", "IMG2633.avif", "IMG2634.avif", "IMG2635.avif", "IMG2636.avif", "IMG3819.avif", "IMG3821.avif", "IMG3822.avif", "IMG5002.avif", "IMG5004.avif", "IMG5005.avif", "IMG5006.avif", "IMG5026.avif"]);
+  const AR_MOVIES = new Set(["phasetitle_01_00.mp4", "phasetitle_02_00.mp4", "phasetitle_03_00.mp4", "phasetitle_04_00.mp4", "phasetitle_05_00.mp4", "phasetitle_05_01.mp4", "phasetitle_06_00.mp4", "phasetitle_06_01.mp4", "phasetitle_07_00.mp4", "phasetitle_07_01.mp4", "phasetitle_08_00.mp4", "phasetitle_08_01.mp4", "phasetitle_09_00.mp4", "phasetitle_09_01.mp4", "phasetitle_10_00.mp4", "phasetitle_10_01.mp4", "phasetitle_10_02.mp4", "phasetitle_11_00.mp4", "phasetitle_11_01.mp4", "phasetitle_12_00.mp4", "phasetitle_12_01.mp4", "phasetitle_13_00.mp4", "phasetitle_13_01.mp4", "phasetitle_14_00.mp4", "phasetitle_14_01.mp4", "phasetitle_15_01a.mp4", "phasetitle_15_01b.mp4"]);
+  const AR_UI = new Set(["CONF_PARTS_JA/btn_base0.webp", "CONF_PARTS_JA/btn_default.webp", "CONF_PARTS_JA/btn_mute.webp", "CONF_PARTS_JA/btn_test.webp", "CONF_PARTS_JA/conf_manual0_ja.webp", "CONF_PARTS_JA/conf_name.webp", "CONF_PARTS_JA/effect_bg.webp", "CONF_PARTS_JA/sound_bg.webp", "CONF_PARTS_JA/voice_bg.webp", "DIALOG_PARTS_JA/dialog_btn_ja.webp", "DIALOG_PARTS_JA/dialog_win.webp", "DISP_PARTS_JA/back_btn.webp", "DISP_PARTS_JA/back_title_ja.webp", "DISP_PARTS_JA/dialog_btn_ja.webp", "DISP_PARTS_JA/dialog_win.webp", "DISP_PARTS_JA/help_txt_ja.webp", "DISP_PARTS_JA/popup_ja.webp", "DISP_PARTS_JA/qload_frame_ja.webp", "GALLERY_PARTS_JA/cg_title.webp", "GALLERY_PARTS_JA/ending_badend.webp", "GALLERY_PARTS_JA/ending_icon_Arcueid.webp", "GALLERY_PARTS_JA/ending_icon_Ciel_1.webp", "GALLERY_PARTS_JA/ending_icon_Ciel_2.webp", "GALLERY_PARTS_JA/ending_title.webp", "GALLERY_PARTS_JA/gallerymenu_btn.webp", "GALLERY_PARTS_JA/movie_title.webp", "GALLERY_PARTS_JA/music_btnbg.webp", "GALLERY_PARTS_JA/music_title.webp", "MENU_PARTS_JA/flow_info.webp", "MENU_PARTS_JA/flow_infobase.webp", "MENU_PARTS_JA/menu_btn_ja.webp", "MENU_PARTS_JA/system_scenebg.webp", "PARTS/caution1_1920x1080.webp", "PARTS/caution2_1920x1080.webp", "PARTS/caution_UpRGB__scale__x1_500000_.webp", "SAVE_PARTS_JA/saveauto.webp", "SAVE_PARTS_JA/saveinfobg_arc.webp", "SAVE_PARTS_JA/saveinfobg_ciel.webp", "SAVE_PARTS_JA/saveinfobg_unknown.webp", "SAVE_PARTS_JA/savescenelabel.webp", "TITLE_PARTS_JA/caution1_1920x1080.webp", "TITLE_PARTS_JA/caution_UpRGB__scale__x1_500000_.webp", "TITLE_PARTS_JA/extra_menu_ja.webp", "TITLE_PARTS_JA/press_start.webp", "TITLE_PARTS_JA/titlemenu.webp", "TITLE_PARTS_JA/titlemenu_lumi.webp"]);
+
+  window.__rewriteArabicAsset = function(url) {
+    if (currentLang !== 'ar' || !url || typeof url !== 'string') return url;
+
+    // Data JSON files
+    if (url.includes('assets/text.json')) return url.replace('assets/text.json', 'ar/text.json');
+    if (url.includes('assets/system.json')) return url.replace('assets/system.json', 'ar/system.json');
+    if (url.includes('assets/flowchart.json')) return url.replace('assets/flowchart.json', 'ar/flowchart.json');
+    if (url.includes('assets/gallery.json')) return url.replace('assets/gallery.json', 'ar/gallery.json');
+    if (url.includes('assets/glossary-ar.json')) return url.replace('assets/glossary-ar.json', 'ar/glossary-ar.json');
+
+    // Localized Images
+    const imgMatch = url.match(/assets\/img\/([^/?#]+\.avif)/);
+    if (imgMatch && AR_IMGS.has(imgMatch[1])) {
+      return url.replace('assets/img/', 'ar/img/');
+    }
+
+    // Localized UI Parts
+    const uiMatch = url.match(/assets\/ui\/(.+?\.(webp|png))/);
+    if (uiMatch && AR_UI.has(uiMatch[1])) {
+      return url.replace('assets/ui/', 'ar/ui/');
+    }
+
+    return url;
+  };
+
+  window.__rewriteArabicMovie = function(url) {
+    if (currentLang !== 'ar' || !url || typeof url !== 'string') return url;
+    const match = url.match(/assets\/movie\/([^/?#]+\.mp4)/);
+    if (match && AR_MOVIES.has(match[1])) {
+      return url.replace('assets/movie/', 'ar/movie/');
+    }
+    return url;
+  };
+
+  // Intercept fetch requests for localized assets when Arabic is active
+  if (currentLang === 'ar') {
+    const origFetch = window.fetch;
+    window.fetch = function(input, init) {
+      if (typeof input === 'string') {
+        input = window.__rewriteArabicAsset(input);
+      } else if (input && input.url) {
+        const rewritten = window.__rewriteArabicAsset(input.url);
+        if (rewritten !== input.url) {
+          input = new Request(rewritten, input);
+        }
+      }
+      return origFetch.call(this, input, init);
+    };
+
+    // Intercept image source setters for localized images and UI parts
+    const origImgSrcDesc = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src');
+    if (origImgSrcDesc && origImgSrcDesc.set) {
+      Object.defineProperty(HTMLImageElement.prototype, 'src', {
+        set(val) {
+          if (typeof val === 'string') {
+            val = window.__rewriteArabicAsset(val);
+          }
+          return origImgSrcDesc.set.call(this, val);
+        },
+        get() {
+          return origImgSrcDesc.get.call(this);
+        }
+      });
+    }
+
+    // Intercept video/media source setters for localized movie titles
+    const origSrcDesc = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'src');
+    if (origSrcDesc && origSrcDesc.set) {
+      Object.defineProperty(HTMLMediaElement.prototype, 'src', {
+        set(val) {
+          if (typeof val === 'string') {
+            val = window.__rewriteArabicMovie(val);
+          }
+          return origSrcDesc.set.call(this, val);
+        },
+        get() {
+          return origSrcDesc.get.call(this);
+        }
+      });
+    }
+    // Intercept setAttribute('src', ...)
+    const origSetAttribute = Element.prototype.setAttribute;
+    Element.prototype.setAttribute = function(name, val) {
+      if (name === 'src' && typeof val === 'string') {
+        if (this instanceof HTMLImageElement) {
+          val = window.__rewriteArabicAsset(val);
+        } else if (this instanceof HTMLMediaElement) {
+          val = window.__rewriteArabicMovie(val);
+        }
+      }
+      return origSetAttribute.call(this, name, val);
+    };
+  }
+})();
