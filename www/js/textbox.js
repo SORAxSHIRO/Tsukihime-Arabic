@@ -1074,17 +1074,52 @@ export class TextBox {
     el().appendChild(document.createTextNode("\n".repeat(n)));
   }
 
-  endOfTextPos() {
-    const last = el().querySelector(".seg:last-of-type");
-    if (!last) return null;
-    const rs = last.getClientRects();
+    endOfTextPos() {
+    const root = el();
+    if (!root) return null;
+    const segs = root.querySelectorAll(".seg");
+    if (!segs.length) return null;
+    const lastSeg = segs[segs.length - 1];
+
+    // Find the last visible character span in the segment (skipping whitespace spans)
+    const chars = lastSeg.querySelectorAll(".ch");
+    let target = null;
+    for (let i = chars.length - 1; i >= 0; i--) {
+      const c = chars[i];
+      if (c.textContent && c.textContent.trim() !== "") {
+        const crs = c.getClientRects();
+        if (crs.length > 0 && crs[0].width > 0) {
+          target = c;
+          break;
+        }
+      }
+    }
+    if (!target) target = lastSeg;
+
+    const rs = target.getClientRects();
     if (!rs.length) return null;
     const r = rs[rs.length - 1];
     const stage = document.getElementById("stage").getBoundingClientRect();
     const scale = stage.width / 1920;
-    return { x: (r.right - stage.left) / scale, y: (r.bottom - stage.top) / scale };
-  }
 
+    const isArabic = hasArabic(root.textContent);
+    if (!isArabic) {
+      return { x: (r.right - stage.left) / scale, y: (r.bottom - stage.top) / scale };
+    }
+
+    // In Arabic (RTL), text ends on the left of the last character.
+    // The click mark has width 42.12px (or 46.44px with 6px margin-left for balloon).
+    // main.js positions the mark at (p.x + 6)px. We adjust p.x so that the mark's
+    // visual right edge is placed cleanly 6px to the left of the last character.
+    const markW = this.balloon ? 46.44 : 42.12;
+    const marginL = this.balloon ? 6 : 0;
+    const desiredVisualRight = (r.left - stage.left) / scale - 6;
+    const desiredVisualLeft = desiredVisualRight - markW;
+    const desiredStyleLeft = desiredVisualLeft - marginL;
+    const px = Math.max(14, desiredStyleLeft - 6);
+
+    return { x: px, y: (r.bottom - stage.top) / scale };
+  }
   // The text box's row pitch and the top of the first free row, in stage pixels, with whether the page has text.
   // Native choices start there (0x84e50 reads the text window's next row, 0xafec7c).
   rows() {
