@@ -10,7 +10,7 @@ import { LogoDust, LogoShards, MenuCursor, MENU_COLUMN, MENU_FADE, drawTitlePart
   CHOICE, ChoiceFx, DialogFx, DIALOG, ButtonState, EASE, TITLE_GLOW_RATE, TITLE_MENU, TITLE_MUSIC, TITLE_WHITE, FIRST_LAUNCH, titleMovieUp, pressPulse, titleLogo, titleLogoAlpha, titleRowAlpha, titleRowTop, px, py,
   SCROLLBAR, ScrollBarFx, BACKLOG, logPages, CONFIG, ConfigScroll, configFollow, configMove, configStep, sliderValue,
   SampleFx, NOTICE, NoticeFx, voiceScrollMax, wheelPixels, hitBoxPixels, STORY_HIT, SYSTEM_HIT } from "./uifx.js";
-import { ACTIONS, MENU_KEYS, MOUSE, SLOTS, canBind, keyLabel, keyName } from "./keys.js";
+import { ACTIONS, MENU_KEYS, MOUSE, RIGHT_CLICK_OPTIONS, SLOTS, canBind, keyLabel, keyName } from "./keys.js";
 import { chapterNamed, menuChapter } from "./chapters.js";
 import { TOUCH, TOUCH_CONTROLS, TOUCH_HINTS, barPlace } from "./touch.js";
 const PHASES = {
@@ -2918,7 +2918,45 @@ export class UI {
     MOUSE.forEach(([label, what], k) => {
       const y = menuTop + L.head + k * L.row;
       line(label, x2, y, half);
-      cap(what, x2 + 360, y);
+      if (what === "Right click") {
+        const isAr = (typeof window !== "undefined" && window.__tsuki_lang === "ar") || document.documentElement.classList.contains("ar-ui");
+        const b = document.createElement("button");
+        b.className = "keyslot mouse-action-btn";
+        b.style.cssText = `left:${x2 + 250}px;top:${y + (L.row - L.slot[1]) / 2}px;width:370px;height:${L.slot[1]}px;`;
+        b.setAttribute("aria-label", "Right click action");
+        b.setSelected = (on) => b.classList.toggle("sel", on);
+        b.placeY = y;
+        
+        const updateText = () => {
+          const curId = this.env?.settings?.rightClick || "menu";
+          const opt = RIGHT_CLICK_OPTIONS.find((o) => o.id === curId) || RIGHT_CLICK_OPTIONS[0];
+          const raw = opt.label;
+          b.textContent = isAr ? (translateUI(raw) || raw) : raw;
+        };
+        updateText();
+        
+        const step = (dir = 1, playSound = false) => {
+          const curId = this.env?.settings?.rightClick || "menu";
+          const idx = Math.max(0, RIGHT_CLICK_OPTIONS.findIndex((o) => o.id === curId));
+          const nextIdx = (idx + dir + RIGHT_CLICK_OPTIONS.length) % RIGHT_CLICK_OPTIONS.length;
+          const nextOpt = RIGHT_CLICK_OPTIONS[nextIdx];
+          this.env?.setSetting?.("rightClick", nextOpt.id);
+          updateText();
+          if (playSound) this.sound?.(1);
+        };
+
+        b.addEventListener("contextmenu", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          step(-1, true);
+        });
+        
+        page.over.append(b);
+        const mouseRow = ACTIONS.length + k;
+        this.confWidget(page.widgets, b, mouseRow, 0, () => step(1), { sound: 1 });
+      } else {
+        cap(what, x2 + 360, y);
+      }
     });
     page.order();
   }
