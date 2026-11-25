@@ -123,7 +123,7 @@ function popup(kind) {
 // and no confirmation for it (+0x60 = 0), fast forward "Read" (+0x1e = 1: 0x40ed0 and 0x77790 stop it at unread
 // text), letters fading in and earlier lines fading out (+0x61 = +0x62 = 0).
 const DEFAULTS = { textSpeed: 35, readSpeed: 15, autoPage: 3000, autoClick: 2200, skipRead: false, voiceOn: true, voiceStop: true,
-  wholeUnread: false, wholeRead: false, skipConfirm: false, fastForward: "read", fadeUnread: true, fadeRead: true };
+  wholeUnread: false, wholeRead: false, skipConfirm: false, fastForward: "read", fadeUnread: true, fadeRead: true, rightClick: "menu" };
 let settings = { ...DEFAULTS };
 try { Object.assign(settings, JSON.parse(localStorage.getItem("tsuki.settings") || "{}")); } catch { /* defaults */ }
 function setSetting(k, v) {
