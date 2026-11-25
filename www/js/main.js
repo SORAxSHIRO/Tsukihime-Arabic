@@ -1027,7 +1027,10 @@ stage.addEventListener("contextmenu", (e) => {
   if (askingSkip()) { passMovie(); return; }
   if (ui.dismissPanel()) return;
   if (showText()) return;
-  if (vm.running && !vm.locked && !moviesDone) systemMenu();   // the game's menu opens on a text wait, not over a movie
+  const act = settings.rightClick || "menu";
+  if (act !== "none" && vm.running && !vm.locked && !moviesDone) {
+    runAction(act, e);
+  }
 });
 // The middle button hides the text (and must not start the browser's own scrolling).
 stage.addEventListener("mousedown", (e) => { if (e.button === 1) e.preventDefault(); });
