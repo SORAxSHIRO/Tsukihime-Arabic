@@ -33,11 +33,23 @@ export const MENU_KEYS = [
 ];
 export const MOUSE = [
   ["Advance text, choose", "Left click"],
-  ["System menu, back", "Right click"],
+  ["Right click", "Right click"],
   ["Log", "Wheel up"],
   ["Advance text, scroll", "Wheel down"],
   ["Hide text", "Middle click"],
   ["Quick bar", "Top edge"],
+];
+export const RIGHT_CLICK_OPTIONS = [
+  { id: "menu", label: "System menu" },
+  { id: "hide", label: "Hide text" },
+  { id: "log", label: "Log" },
+  { id: "auto", label: "Auto mode" },
+  { id: "skip", label: "Skip read text" },
+  { id: "quickSave", label: "Quick save" },
+  { id: "quickLoad", label: "Quick load" },
+  { id: "rewind", label: "Previous message" },
+  { id: "bar", label: "Quick bar" },
+  { id: "none", label: "None" }
 ];
 // Keys the browser keeps for itself, and the ones that are never a binding on their own.
 const RESERVED = new Set(["F5", "F11", "F12", "Meta", "OS", "ContextMenu", "CapsLock", "NumLock", "ScrollLock", "Dead", "Unidentified", "Process"]);
