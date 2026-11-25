@@ -180,6 +180,7 @@ export const UI_AR = Object.freeze({
   "First / last": "الأول / الأخير",
   "Left click": "نقر أيسر",
   "Right click": "نقر أيمن",
+  "None": "بدون وظيفة",
   "Middle click": "نقر بالعجلة",
   "Wheel up": "العجلة إلى أعلى",
   "Wheel down": "العجلة إلى أسفل",
